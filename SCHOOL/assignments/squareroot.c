@@ -1,11 +1,7 @@
 #include <stdio.h>
 
 float negpow(int n){
-    float y = 1;
-    for(int i = 0; i < n; i++){
-        y=y/10;
-    }
-    return y;
+    
 }
 
 
@@ -13,8 +9,15 @@ double sqrtUser (double number, int n){
     if (number<0){
         return -1;
     }
+    if (n>16){
+        printf("invalid percision");
+        return -1;
+    }
+    double tolerance = 1;
+    for(int i = 0; i < n; i++){
+        tolerance=tolerance/10;
+    }
     double xn = number / 2;
-    float tolerance = negpow(n);
 
     while (1) {
     double xn2 = (0.5)*(xn + number / xn);
